@@ -1,0 +1,7 @@
+G:\СиАКОД\Lab4\bin\Debug\Lab4.exe.config
+G:\СиАКОД\Lab4\bin\Debug\Lab4.exe
+G:\СиАКОД\Lab4\bin\Debug\Lab4.pdb
+G:\СиАКОД\Lab4\obj\Debug\Lab4.csprojAssemblyReference.cache
+G:\СиАКОД\Lab4\obj\Debug\Lab4.csproj.CoreCompileInputs.cache
+G:\СиАКОД\Lab4\obj\Debug\Lab4.exe
+G:\СиАКОД\Lab4\obj\Debug\Lab4.pdb

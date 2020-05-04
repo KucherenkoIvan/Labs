@@ -1,0 +1,12 @@
+G:\SUBD\Lab2\bin\Debug\Lab2.exe.config
+G:\SUBD\Lab2\bin\Debug\Lab2.exe
+G:\SUBD\Lab2\bin\Debug\Lab2.pdb
+G:\SUBD\Lab2\obj\Debug\Lab2.csprojAssemblyReference.cache
+G:\SUBD\Lab2\obj\Debug\Lab2.Form1.resources
+G:\SUBD\Lab2\obj\Debug\Lab2.Properties.Resources.resources
+G:\SUBD\Lab2\obj\Debug\Lab2.csproj.GenerateResource.cache
+G:\SUBD\Lab2\obj\Debug\Lab2.exe
+G:\SUBD\Lab2\obj\Debug\Lab2.pdb
+G:\SUBD\Lab2\obj\Debug\Lab2.Add.resources
+G:\SUBD\Lab2\obj\Debug\Lab2.Search.resources
+G:\SUBD\Lab2\obj\Debug\Lab2.User.resources

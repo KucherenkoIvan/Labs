@@ -1,0 +1,6 @@
+G:\СиАКОД\Lab3\bin\Debug\Lab3.exe.config
+G:\СиАКОД\Lab3\bin\Debug\Lab3.exe
+G:\СиАКОД\Lab3\bin\Debug\Lab3.pdb
+G:\СиАКОД\Lab3\obj\Debug\Lab3.csprojAssemblyReference.cache
+G:\СиАКОД\Lab3\obj\Debug\Lab3.exe
+G:\СиАКОД\Lab3\obj\Debug\Lab3.pdb
