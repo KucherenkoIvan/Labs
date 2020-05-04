@@ -1,0 +1,23 @@
+﻿<Window x:Class="lab6_1.AddCar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab6_1"
+        mc:Ignorable="d"
+        Title="AddCar" Height="158" Width="274">
+    <Grid Margin="0,0,2,-2">
+        <Label Content="Гос. номер:&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="25"/>
+        <TextBox x:Name="Number" HorizontalAlignment="Left" Height="23" Margin="87,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" MaxLength="7"/>
+        <Label Content="Модель:&#xA;" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Владелец:&#xA;" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Height="25"/>
+        <TextBox x:Name="Model" HorizontalAlignment="Left" Height="23" Margin="87,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" IsEnabled="False"/>
+        <TextBox x:Name="owner" HorizontalAlignment="Left" Height="23" Margin="87,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" IsEnabled="False"/>
+        <Button x:Name="modelsObserve" Content="..." HorizontalAlignment="Left" Margin="220,43,0,0" VerticalAlignment="Top" Width="25" Height="22" Click="mObserve"/>
+        <Button x:Name="ownersObserve" Content="..." HorizontalAlignment="Left" Margin="220,73,0,0" VerticalAlignment="Top" Width="25" Height="22" Click="oObserve"/>
+        <Button Content="Сброс" Margin="15,100,198,8" Click="refresh"/>
+        <Button Content="Отмена" Margin="105,100,104,8" Click="Button_Click_1"/>
+        <Button Content="ОК" Margin="195,100,19,8" Click="Button_Click"/>
+
+    </Grid>
+</Window>

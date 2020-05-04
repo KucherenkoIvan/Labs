@@ -1,0 +1,26 @@
+﻿<Window x:Class="lab6_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab6_1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="505" Width="568" HorizontalAlignment="Left" VerticalAlignment="Top" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="addButton" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="105" Click="addButton_Click" Margin="431,0,0,408"/>
+        <Button x:Name="removeButton" Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="105" Margin="431,0,0,382" Click="removeButton_Click" Height="20"/>
+        <Button x:Name="editButton" Content="Редактировать" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="105" Margin="431,0,0,357" Click="editButton_Click"/>
+        <ListBox x:Name="list" HorizontalAlignment="Left" Height="440" Margin="10,10,0,0" VerticalAlignment="Top" Width="416" RenderTransformOrigin="0.601,0.479"/>
+        <Button Content="Типы работ" HorizontalAlignment="Left" Margin="431,331,0,0" VerticalAlignment="Top" Width="105" Click="Types"/>
+        <Button Content="Автомобили" HorizontalAlignment="Left" Margin="431,356,0,0" VerticalAlignment="Top" Width="105" Click="cars"/>
+        <Button Content="Владельцы" HorizontalAlignment="Left" Margin="431,381,0,0" VerticalAlignment="Top" Width="105" Click="owners"/>
+        <Button Content="Модели машин" HorizontalAlignment="Left" Margin="431,406,0,0" VerticalAlignment="Top" Width="105" Click="models"/>
+        <Button Content="Мастера" HorizontalAlignment="Left" Margin="431,431,0,0" VerticalAlignment="Top" Width="105" Click="masters"/>
+        <Label Content="Записи о работах:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="426,10,0,0" Width="110"/>
+        <Label Content="Подразделы:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="431,300,0,0" Width="110"/>
+    </Grid>
+</Window>
