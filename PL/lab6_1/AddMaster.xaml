@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab6_1"
         mc:Ignorable="d"
-        Title="AddMaster" Height="323" Width="339">
+        Title="Мастер - создание и редактирование записи" Height="323" Width="339" WindowStyle="ToolWindow">
     <Grid>
         <TextBox x:Name="Name" HorizontalAlignment="Left" Height="23" Margin="125,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193"/>
         <DatePicker x:Name="birthDate" HorizontalAlignment="Left" Margin="125,38,0,0" VerticalAlignment="Top" Width="193" Text="urugay"/>

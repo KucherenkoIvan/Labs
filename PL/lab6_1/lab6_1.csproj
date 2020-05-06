@@ -73,6 +73,9 @@
     <Compile Include="Cars.xaml.cs">
       <DependentUpon>Cars.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Models.xaml.cs">
       <DependentUpon>Models.xaml</DependentUpon>
     </Compile>

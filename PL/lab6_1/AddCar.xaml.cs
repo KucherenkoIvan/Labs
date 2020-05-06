@@ -1,44 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Data;
 
 namespace lab6_1
 {
-    /// <summary>
-    /// Логика взаимодействия для AddCar.xaml
-    /// </summary>
     public partial class AddCar : Window
     {
         public bool Valid
         {
             get
             {
-                return !String.IsNullOrEmpty(owner.Text) && !String.IsNullOrEmpty(Model.Text) && Number.Text.Length >= 6;
-                //todo
-                //Upgrade validation code here
+                return
+                    value[1] != null && value[2] != null &&
+                    !String.IsNullOrEmpty(owner.Text) && !String.IsNullOrEmpty(Model.Text) && Number.Text.Length >= 6;
+
             }
         }
+        DataSet1 set = null;
         public object[] value = new object[4];
         public void Fill(object[] tuple, DataSet1 set)
-        {//code model owner number
+        {
             Number.Text = tuple[3].ToString();
             owner.Text = set.Owner.Rows.Find(tuple[2].ToString()).ItemArray[2].ToString();
             Model.Text = set.Model.Rows.Find(tuple[1].ToString()).ItemArray[1].ToString();
+            value[1] = tuple[1];
+            value[2] = tuple[2];
         }
         public AddCar()
         {
             InitializeComponent();
+            Loaded += AddCar_Loaded;
+        }
+
+        private void AddCar_Loaded(object sender, RoutedEventArgs e)
+        {
+            set = (Owner as MainWindow).set;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -63,8 +58,8 @@ namespace lab6_1
             m.Owner = Owner;
             if ((bool)m.ShowDialog())
             {
-                value[1] = (m.Val as DataRow).ItemArray[0].ToString();
-                Model.Text = (m.Val as DataRow).ItemArray[1].ToString();
+                value[1] = set.Model.FindBycode(int.Parse(m.Val[0].ToString()));
+                Model.Text = m.Val[1].ToString();
             }
         }
 
@@ -74,8 +69,8 @@ namespace lab6_1
             m.Owner = Owner;
             if ((bool)m.ShowDialog())
             {
-                value[2] = (m.Val as DataRow).ItemArray[0].ToString();
-                owner.Text = (m.Val as DataRow).ItemArray[2].ToString();
+                value[2] = set.Owner.FindBycode(int.Parse(m.Val[0].ToString()));
+                owner.Text = m.Val[2].ToString();
             }
         }
     }

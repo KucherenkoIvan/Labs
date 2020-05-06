@@ -1,28 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Data;
 
 namespace lab6_1
 {
-    /// <summary>
-    /// Логика взаимодействия для WorkTypes.xaml
-    /// </summary>
     public partial class WorkTypes : Window
     {
         MainWindow owner;
         DataRowCollection oRows;
-        public object Val = null;
+        public object[] Val = null;
         public WorkTypes()
         {
             InitializeComponent();
@@ -33,7 +19,7 @@ namespace lab6_1
         {
             try
             {
-                Val = owner.set.WorkType.Rows[list.SelectedIndex];
+                Val = owner.set.WorkType.Rows[list.SelectedIndex].ItemArray;
                 DialogResult = true;
             }
             catch
@@ -65,7 +51,9 @@ namespace lab6_1
         }
         private void removeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (list.SelectedIndex != -1)
+            int index = list.SelectedIndex;
+            if (index != -1 && MessageBox.Show("Удаление этого элемента может повлечь удаление связанных с ним записей\nПродолжить?", "Удаление",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 oRows.RemoveAt(list.SelectedIndex);
         }
 
@@ -75,6 +63,7 @@ namespace lab6_1
             while (flag)
             {
                 AddWorkType adm = new AddWorkType();
+                adm.Owner = this;
                 if ((bool)adm.ShowDialog())
                     if (adm.Valid)
                     {
@@ -95,6 +84,7 @@ namespace lab6_1
                 while (flag)
                 {
                     AddWorkType adm = new AddWorkType();
+                    adm.Owner = this;
                     adm.Fill(oRows[list.SelectedIndex].ItemArray);
                     if ((bool)adm.ShowDialog())
                         if (adm.Valid)

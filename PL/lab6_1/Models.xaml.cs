@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Data;
 
 namespace lab6_1
 {
@@ -19,7 +8,7 @@ namespace lab6_1
     {
         MainWindow owner;
         DataRowCollection oRows;
-        public object Val = null;
+        public object[] Val = null;
         public Models()
         {
             InitializeComponent();
@@ -31,7 +20,7 @@ namespace lab6_1
         {
             try
             {
-                Val = owner.set.Model.Rows[list.SelectedIndex];
+                Val = owner.set.Model.Rows[list.SelectedIndex].ItemArray;
                 DialogResult = true;
             }
             catch
@@ -63,7 +52,9 @@ namespace lab6_1
         }
         private void removeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (list.SelectedIndex != -1)
+            int index = list.SelectedIndex;
+            if (index != -1 && MessageBox.Show("Удаление этого элемента может повлечь удаление связанных с ним записей\nПродолжить?", "Удаление",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 oRows.RemoveAt(list.SelectedIndex);
         }
 
@@ -87,7 +78,8 @@ namespace lab6_1
 
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
-            if (list.SelectedIndex != -1)
+            int index = list.SelectedIndex;
+            if (index != -1)
             {
                 bool flag = true;
                 while (flag)

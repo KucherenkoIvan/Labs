@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab6_1"
         mc:Ignorable="d"
-        Title="Masters" Height="423" Width="424">
+        Title="Мастера" Height="423" Width="424">
     <Grid x:Name="tst">
         <ListBox x:Name="list" HorizontalAlignment="Left" Height="380" VerticalAlignment="Top" Width="420" Margin="0,20,0,0"/>
         <Button x:Name="addButton" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="addButton_Click"/>

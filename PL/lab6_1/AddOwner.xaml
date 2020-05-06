@@ -5,19 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab6_1"
         mc:Ignorable="d"
-        Title="AddOwner" Height="288" Width="294">
+        Title="Владелец - создание и редактирование записи" Height="288" Width="349" WindowStyle="ToolWindow">
     <Grid>
-        <TextBox x:Name="Name" HorizontalAlignment="Left" Height="23" Margin="95,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="286"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="Name" HorizontalAlignment="Left" Height="23" Margin="95,13,-44,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236"/>
         <Label Content="ФИО" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
-        <TextBox x:Name="pSeries" HorizontalAlignment="Left" Height="23" Margin="95,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyDown="NumFilter" MaxLength="4"/>
+        <TextBox x:Name="pSeries" HorizontalAlignment="Left" Height="23" Margin="95,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" KeyDown="NumFilter" MaxLength="4"/>
         <Label Content="Паспорт" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,40,0,0"/>
         <Label Content="Серия" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,71,0,0"/>
         <Label Content="Номер" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,102,0,0"/>
         <Label Content="Выдан" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,133,0,0"/>
-        <TextBox x:Name="pNum" HorizontalAlignment="Left" Height="23" Margin="95,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="6" KeyDown="NumFilter"/>
-        <Button Content="Сброс" HorizontalAlignment="Left" VerticalAlignment="Top" Width="63" Margin="10,233,0,0" Click="refresh"/>
-        <Button Content="Отмена" HorizontalAlignment="Left" Width="63" Margin="107,233,0,0" Height="20" VerticalAlignment="Top" Click="Button_Click_1"/>
-        <Button Content="Ок" VerticalAlignment="Top" Margin="207,233,0,0" HorizontalAlignment="Left" Width="63" Click="Button_Click"/>
-        <TextBox x:Name="pInfo" HorizontalAlignment="Left" Height="81" Margin="95,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
+        <TextBox x:Name="pNum" HorizontalAlignment="Left" Height="23" Margin="95,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" MaxLength="6" KeyDown="NumFilter"/>
+        <Button Content="Сброс" HorizontalAlignment="Left" VerticalAlignment="Top" Width="72" Margin="23,231,0,0" Click="refresh"/>
+        <Button Content="Отмена" HorizontalAlignment="Left" Width="72" Margin="134,231,0,0" Height="20" VerticalAlignment="Top" Click="Button_Click_1"/>
+        <Button Content="Ок" VerticalAlignment="Top" Margin="248,231,-33,0" HorizontalAlignment="Left" Width="72" Click="Button_Click"/>
+        <TextBox x:Name="pInfo" HorizontalAlignment="Left" Height="81" Margin="95,137,-44,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236"/>
     </Grid>
 </Window>
