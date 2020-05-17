@@ -12,7 +12,7 @@
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Work" msprop:Generator_TableClassName="WorkDataTable" msprop:Generator_TableVarName="tableWork" msprop:Generator_TablePropName="Work" msprop:Generator_RowDeletingName="WorkRowDeleting" msprop:Generator_RowChangingName="WorkRowChanging" msprop:Generator_RowEvHandlerName="WorkRowChangeEventHandler" msprop:Generator_RowDeletedName="WorkRowDeleted" msprop:Generator_UserTableName="Work" msprop:Generator_RowChangedName="WorkRowChanged" msprop:Generator_RowEvArgName="WorkRowChangeEvent" msprop:Generator_RowClassName="WorkRow">
+        <xs:element name="Work" msprop:Generator_TableClassName="WorkDataTable" msprop:Generator_TableVarName="tableWork" msprop:Generator_RowChangedName="WorkRowChanged" msprop:Generator_TablePropName="Work" msprop:Generator_RowDeletingName="WorkRowDeleting" msprop:Generator_RowChangingName="WorkRowChanging" msprop:Generator_RowEvHandlerName="WorkRowChangeEventHandler" msprop:Generator_RowDeletedName="WorkRowDeleted" msprop:Generator_RowClassName="WorkRow" msprop:Generator_UserTableName="Work" msprop:Generator_RowEvArgName="WorkRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="typeCode" msprop:Generator_ColumnVarNameInTable="columntypeCode" msprop:Generator_ColumnPropNameInRow="typeCode" msprop:Generator_ColumnPropNameInTable="typeCodeColumn" msprop:Generator_UserColumnName="typeCode" type="xs:int" minOccurs="0" />
@@ -24,7 +24,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Master" msprop:Generator_TableClassName="MasterDataTable" msprop:Generator_TableVarName="tableMaster" msprop:Generator_TablePropName="Master" msprop:Generator_RowDeletingName="MasterRowDeleting" msprop:Generator_RowChangingName="MasterRowChanging" msprop:Generator_RowEvHandlerName="MasterRowChangeEventHandler" msprop:Generator_RowDeletedName="MasterRowDeleted" msprop:Generator_UserTableName="Master" msprop:Generator_RowChangedName="MasterRowChanged" msprop:Generator_RowEvArgName="MasterRowChangeEvent" msprop:Generator_RowClassName="MasterRow">
+        <xs:element name="Master" msprop:Generator_TableClassName="MasterDataTable" msprop:Generator_TableVarName="tableMaster" msprop:Generator_RowChangedName="MasterRowChanged" msprop:Generator_TablePropName="Master" msprop:Generator_RowDeletingName="MasterRowDeleting" msprop:Generator_RowChangingName="MasterRowChanging" msprop:Generator_RowEvHandlerName="MasterRowChangeEventHandler" msprop:Generator_RowDeletedName="MasterRowDeleted" msprop:Generator_RowClassName="MasterRow" msprop:Generator_UserTableName="Master" msprop:Generator_RowEvArgName="MasterRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="code" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnPropNameInTable="codeColumn" msprop:Generator_UserColumnName="code" type="xs:int" />
@@ -34,7 +34,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Car" msprop:Generator_TableClassName="CarDataTable" msprop:Generator_TableVarName="tableCar" msprop:Generator_TablePropName="Car" msprop:Generator_RowDeletingName="CarRowDeleting" msprop:Generator_RowChangingName="CarRowChanging" msprop:Generator_RowEvHandlerName="CarRowChangeEventHandler" msprop:Generator_RowDeletedName="CarRowDeleted" msprop:Generator_UserTableName="Car" msprop:Generator_RowChangedName="CarRowChanged" msprop:Generator_RowEvArgName="CarRowChangeEvent" msprop:Generator_RowClassName="CarRow">
+        <xs:element name="Car" msprop:Generator_TableClassName="CarDataTable" msprop:Generator_TableVarName="tableCar" msprop:Generator_RowChangedName="CarRowChanged" msprop:Generator_TablePropName="Car" msprop:Generator_RowDeletingName="CarRowDeleting" msprop:Generator_RowChangingName="CarRowChanging" msprop:Generator_RowEvHandlerName="CarRowChangeEventHandler" msprop:Generator_RowDeletedName="CarRowDeleted" msprop:Generator_RowClassName="CarRow" msprop:Generator_UserTableName="Car" msprop:Generator_RowEvArgName="CarRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="code" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnPropNameInTable="codeColumn" msprop:Generator_UserColumnName="code" type="xs:int" />
@@ -44,7 +44,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Owner" msprop:Generator_TableClassName="OwnerDataTable" msprop:Generator_TableVarName="tableOwner" msprop:Generator_TablePropName="Owner" msprop:Generator_RowDeletingName="OwnerRowDeleting" msprop:Generator_RowChangingName="OwnerRowChanging" msprop:Generator_RowEvHandlerName="OwnerRowChangeEventHandler" msprop:Generator_RowDeletedName="OwnerRowDeleted" msprop:Generator_UserTableName="Owner" msprop:Generator_RowChangedName="OwnerRowChanged" msprop:Generator_RowEvArgName="OwnerRowChangeEvent" msprop:Generator_RowClassName="OwnerRow">
+        <xs:element name="Owner" msprop:Generator_TableClassName="OwnerDataTable" msprop:Generator_TableVarName="tableOwner" msprop:Generator_RowChangedName="OwnerRowChanged" msprop:Generator_TablePropName="Owner" msprop:Generator_RowDeletingName="OwnerRowDeleting" msprop:Generator_RowChangingName="OwnerRowChanging" msprop:Generator_RowEvHandlerName="OwnerRowChangeEventHandler" msprop:Generator_RowDeletedName="OwnerRowDeleted" msprop:Generator_RowClassName="OwnerRow" msprop:Generator_UserTableName="Owner" msprop:Generator_RowEvArgName="OwnerRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="code" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnPropNameInTable="codeColumn" msprop:Generator_UserColumnName="code" type="xs:int" />
@@ -53,7 +53,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Model" msprop:Generator_TableClassName="ModelDataTable" msprop:Generator_TableVarName="tableModel" msprop:Generator_TablePropName="Model" msprop:Generator_RowDeletingName="ModelRowDeleting" msprop:Generator_RowChangingName="ModelRowChanging" msprop:Generator_RowEvHandlerName="ModelRowChangeEventHandler" msprop:Generator_RowDeletedName="ModelRowDeleted" msprop:Generator_UserTableName="Model" msprop:Generator_RowChangedName="ModelRowChanged" msprop:Generator_RowEvArgName="ModelRowChangeEvent" msprop:Generator_RowClassName="ModelRow">
+        <xs:element name="Model" msprop:Generator_TableClassName="ModelDataTable" msprop:Generator_TableVarName="tableModel" msprop:Generator_RowChangedName="ModelRowChanged" msprop:Generator_TablePropName="Model" msprop:Generator_RowDeletingName="ModelRowDeleting" msprop:Generator_RowChangingName="ModelRowChanging" msprop:Generator_RowEvHandlerName="ModelRowChangeEventHandler" msprop:Generator_RowDeletedName="ModelRowDeleted" msprop:Generator_RowClassName="ModelRow" msprop:Generator_UserTableName="Model" msprop:Generator_RowEvArgName="ModelRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="code" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnPropNameInTable="codeColumn" msprop:Generator_UserColumnName="code" type="xs:int" />
@@ -61,7 +61,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="WorkType" msprop:Generator_TableClassName="WorkTypeDataTable" msprop:Generator_TableVarName="tableWorkType" msprop:Generator_TablePropName="WorkType" msprop:Generator_RowDeletingName="WorkTypeRowDeleting" msprop:Generator_RowChangingName="WorkTypeRowChanging" msprop:Generator_RowEvHandlerName="WorkTypeRowChangeEventHandler" msprop:Generator_RowDeletedName="WorkTypeRowDeleted" msprop:Generator_UserTableName="WorkType" msprop:Generator_RowChangedName="WorkTypeRowChanged" msprop:Generator_RowEvArgName="WorkTypeRowChangeEvent" msprop:Generator_RowClassName="WorkTypeRow">
+        <xs:element name="WorkType" msprop:Generator_TableClassName="WorkTypeDataTable" msprop:Generator_TableVarName="tableWorkType" msprop:Generator_RowChangedName="WorkTypeRowChanged" msprop:Generator_TablePropName="WorkType" msprop:Generator_RowDeletingName="WorkTypeRowDeleting" msprop:Generator_RowChangingName="WorkTypeRowChanging" msprop:Generator_RowEvHandlerName="WorkTypeRowChangeEventHandler" msprop:Generator_RowDeletedName="WorkTypeRowDeleted" msprop:Generator_RowClassName="WorkTypeRow" msprop:Generator_UserTableName="WorkType" msprop:Generator_RowEvArgName="WorkTypeRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="code" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnPropNameInTable="codeColumn" msprop:Generator_UserColumnName="code" type="xs:int" />
@@ -95,25 +95,25 @@
       <xs:selector xpath=".//mstns:WorkType" />
       <xs:field xpath="mstns:code" />
     </xs:unique>
-    <xs:keyref name="car_owner" refer="Owner_Constraint1" msprop:rel_Generator_UserChildTable="Car" msprop:rel_Generator_ChildPropName="GetCarRows" msprop:rel_Generator_UserRelationName="car_owner" msprop:rel_Generator_RelationVarName="relationcar_owner" msprop:rel_Generator_UserParentTable="Owner" msprop:rel_Generator_ParentPropName="OwnerRow" msdata:AcceptRejectRule="Cascade">
-      <xs:selector xpath=".//mstns:Car" />
-      <xs:field xpath="mstns:ownerCode" />
-    </xs:keyref>
-    <xs:keyref name="car_model" refer="Model_Constraint1" msprop:rel_Generator_UserChildTable="Car" msprop:rel_Generator_ChildPropName="GetCarRows" msprop:rel_Generator_UserRelationName="car_model" msprop:rel_Generator_RelationVarName="relationcar_model" msprop:rel_Generator_UserParentTable="Model" msprop:rel_Generator_ParentPropName="ModelRow" msdata:AcceptRejectRule="Cascade">
+    <xs:keyref name="car_model" refer="Model_Constraint1" msprop:rel_Generator_UserChildTable="Car" msprop:rel_Generator_ChildPropName="GetCarRows" msprop:rel_Generator_UserRelationName="car_model" msprop:rel_Generator_ParentPropName="ModelRow" msprop:rel_Generator_RelationVarName="relationcar_model" msprop:rel_Generator_UserParentTable="Model" msdata:AcceptRejectRule="Cascade">
       <xs:selector xpath=".//mstns:Car" />
       <xs:field xpath="mstns:modelCode" />
     </xs:keyref>
-    <xs:keyref name="WorkType_Work" refer="WorkType_Constraint1" msprop:rel_Generator_UserChildTable="Work" msprop:rel_Generator_ChildPropName="GetWorkRows" msprop:rel_Generator_UserRelationName="WorkType_Work" msprop:rel_Generator_RelationVarName="relationWorkType_Work" msprop:rel_Generator_UserParentTable="WorkType" msprop:rel_Generator_ParentPropName="WorkTypeRow" msdata:AcceptRejectRule="Cascade">
-      <xs:selector xpath=".//mstns:Work" />
-      <xs:field xpath="mstns:typeCode" />
+    <xs:keyref name="car_owner" refer="Owner_Constraint1" msprop:rel_Generator_UserChildTable="Car" msprop:rel_Generator_ChildPropName="GetCarRows" msprop:rel_Generator_UserRelationName="car_owner" msprop:rel_Generator_ParentPropName="OwnerRow" msprop:rel_Generator_RelationVarName="relationcar_owner" msprop:rel_Generator_UserParentTable="Owner" msdata:AcceptRejectRule="Cascade">
+      <xs:selector xpath=".//mstns:Car" />
+      <xs:field xpath="mstns:ownerCode" />
     </xs:keyref>
-    <xs:keyref name="work_car" refer="Car_Constraint1" msprop:rel_Generator_UserChildTable="Work" msprop:rel_Generator_ChildPropName="GetWorkRows" msprop:rel_Generator_UserRelationName="work_car" msprop:rel_Generator_RelationVarName="relationwork_car" msprop:rel_Generator_UserParentTable="Car" msprop:rel_Generator_ParentPropName="CarRow" msdata:AcceptRejectRule="Cascade">
+    <xs:keyref name="Master_Work" refer="Constraint1" msprop:rel_Generator_UserChildTable="Work" msprop:rel_Generator_ChildPropName="GetWorkRows" msprop:rel_Generator_UserRelationName="Master_Work" msprop:rel_Generator_ParentPropName="MasterRow" msprop:rel_Generator_RelationVarName="relationMaster_Work" msprop:rel_Generator_UserParentTable="Master" msdata:AcceptRejectRule="Cascade">
+      <xs:selector xpath=".//mstns:Work" />
+      <xs:field xpath="mstns:masterCode" />
+    </xs:keyref>
+    <xs:keyref name="work_car" refer="Car_Constraint1" msprop:rel_Generator_UserChildTable="Work" msprop:rel_Generator_ChildPropName="GetWorkRows" msprop:rel_Generator_UserRelationName="work_car" msprop:rel_Generator_ParentPropName="CarRow" msprop:rel_Generator_RelationVarName="relationwork_car" msprop:rel_Generator_UserParentTable="Car" msdata:AcceptRejectRule="Cascade">
       <xs:selector xpath=".//mstns:Work" />
       <xs:field xpath="mstns:carCode" />
     </xs:keyref>
-    <xs:keyref name="Master_Work" refer="Constraint1" msprop:rel_Generator_UserChildTable="Work" msprop:rel_Generator_ChildPropName="GetWorkRows" msprop:rel_Generator_UserRelationName="Master_Work" msprop:rel_Generator_RelationVarName="relationMaster_Work" msprop:rel_Generator_UserParentTable="Master" msprop:rel_Generator_ParentPropName="MasterRow" msdata:AcceptRejectRule="Cascade">
+    <xs:keyref name="WorkType_Work" refer="WorkType_Constraint1" msprop:rel_Generator_UserChildTable="Work" msprop:rel_Generator_ChildPropName="GetWorkRows" msprop:rel_Generator_UserRelationName="WorkType_Work" msprop:rel_Generator_ParentPropName="WorkTypeRow" msprop:rel_Generator_RelationVarName="relationWorkType_Work" msprop:rel_Generator_UserParentTable="WorkType" msdata:AcceptRejectRule="Cascade">
       <xs:selector xpath=".//mstns:Work" />
-      <xs:field xpath="mstns:masterCode" />
+      <xs:field xpath="mstns:typeCode" />
     </xs:keyref>
   </xs:element>
 </xs:schema>

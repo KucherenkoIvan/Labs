@@ -8,7 +8,7 @@
         Title="Автомобиль - создание и редактирование записи" Height="163" Width="374" WindowStyle="ToolWindow">
     <Grid Margin="0,0,2,-2">
         <Label Content="Гос. номер:&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="25"/>
-        <TextBox x:Name="Number" HorizontalAlignment="Left" Height="23" Margin="87,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258" MaxLength="7"/>
+        <TextBox x:Name="Number" HorizontalAlignment="Left" Height="23" Margin="87,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258" MaxLength="9"/>
         <Label Content="Модель:&#xA;" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Height="25"/>
         <Label Content="Владелец:&#xA;" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Height="25"/>
         <TextBox x:Name="Model" HorizontalAlignment="Left" Height="23" Margin="87,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" IsEnabled="False"/>

@@ -11,9 +11,9 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="addButton" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="105" Click="addButton_Click" Margin="431,0,0,408"/>
-        <Button x:Name="removeButton" Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="105" Margin="431,0,0,382" Click="removeButton_Click" Height="20"/>
-        <Button x:Name="editButton" Content="Редактировать" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="105" Margin="431,0,0,357" Click="editButton_Click"/>
+        <Button x:Name="addButton" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="105" Margin="431,0,0,408"/>
+        <Button x:Name="removeButton" Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="105" Margin="431,0,0,382" Height="20"/>
+        <Button x:Name="editButton" Content="Редактировать" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="105" Margin="431,0,0,357"/>
         <ListBox x:Name="list" HorizontalAlignment="Left" Height="440" Margin="10,10,0,0" VerticalAlignment="Top" Width="416" RenderTransformOrigin="0.601,0.479"/>
         <Button Content="Типы работ" HorizontalAlignment="Left" Margin="431,201,0,0" VerticalAlignment="Top" Width="105" Click="Types"/>
         <Button Content="Автомобили" HorizontalAlignment="Left" Margin="431,226,0,0" VerticalAlignment="Top" Width="105" Click="cars"/>

@@ -36,15 +36,15 @@ namespace lab6_1 {
         
         private WorkTypeDataTable tableWorkType;
         
-        private global::System.Data.DataRelation relationWorkType_Work;
+        private global::System.Data.DataRelation relationMaster_Work;
         
         private global::System.Data.DataRelation relationwork_car;
         
-        private global::System.Data.DataRelation relationMaster_Work;
-        
-        private global::System.Data.DataRelation relationcar_owner;
+        private global::System.Data.DataRelation relationWorkType_Work;
         
         private global::System.Data.DataRelation relationcar_model;
+        
+        private global::System.Data.DataRelation relationcar_owner;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -324,11 +324,11 @@ namespace lab6_1 {
                     this.tableWorkType.InitVars();
                 }
             }
-            this.relationWorkType_Work = this.Relations["WorkType_Work"];
-            this.relationwork_car = this.Relations["work_car"];
             this.relationMaster_Work = this.Relations["Master_Work"];
-            this.relationcar_owner = this.Relations["car_owner"];
+            this.relationwork_car = this.Relations["work_car"];
+            this.relationWorkType_Work = this.Relations["WorkType_Work"];
             this.relationcar_model = this.Relations["car_model"];
+            this.relationcar_owner = this.Relations["car_owner"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -352,9 +352,9 @@ namespace lab6_1 {
             this.tableWorkType = new WorkTypeDataTable();
             base.Tables.Add(this.tableWorkType);
             global::System.Data.ForeignKeyConstraint fkc;
-            fkc = new global::System.Data.ForeignKeyConstraint("WorkType_Work", new global::System.Data.DataColumn[] {
-                        this.tableWorkType.codeColumn}, new global::System.Data.DataColumn[] {
-                        this.tableWork.typeCodeColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("Master_Work", new global::System.Data.DataColumn[] {
+                        this.tableMaster.codeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableWork.masterCodeColumn});
             this.tableWork.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.Cascade;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
@@ -366,17 +366,10 @@ namespace lab6_1 {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.Cascade;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("Master_Work", new global::System.Data.DataColumn[] {
-                        this.tableMaster.codeColumn}, new global::System.Data.DataColumn[] {
-                        this.tableWork.masterCodeColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("WorkType_Work", new global::System.Data.DataColumn[] {
+                        this.tableWorkType.codeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableWork.typeCodeColumn});
             this.tableWork.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.Cascade;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("car_owner", new global::System.Data.DataColumn[] {
-                        this.tableOwner.codeColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCar.ownerCodeColumn});
-            this.tableCar.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.Cascade;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
@@ -387,26 +380,33 @@ namespace lab6_1 {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.Cascade;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            this.relationWorkType_Work = new global::System.Data.DataRelation("WorkType_Work", new global::System.Data.DataColumn[] {
-                        this.tableWorkType.codeColumn}, new global::System.Data.DataColumn[] {
-                        this.tableWork.typeCodeColumn}, false);
-            this.Relations.Add(this.relationWorkType_Work);
-            this.relationwork_car = new global::System.Data.DataRelation("work_car", new global::System.Data.DataColumn[] {
-                        this.tableCar.codeColumn}, new global::System.Data.DataColumn[] {
-                        this.tableWork.carCodeColumn}, false);
-            this.Relations.Add(this.relationwork_car);
+            fkc = new global::System.Data.ForeignKeyConstraint("car_owner", new global::System.Data.DataColumn[] {
+                        this.tableOwner.codeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCar.ownerCodeColumn});
+            this.tableCar.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.Cascade;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             this.relationMaster_Work = new global::System.Data.DataRelation("Master_Work", new global::System.Data.DataColumn[] {
                         this.tableMaster.codeColumn}, new global::System.Data.DataColumn[] {
                         this.tableWork.masterCodeColumn}, false);
             this.Relations.Add(this.relationMaster_Work);
-            this.relationcar_owner = new global::System.Data.DataRelation("car_owner", new global::System.Data.DataColumn[] {
-                        this.tableOwner.codeColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCar.ownerCodeColumn}, false);
-            this.Relations.Add(this.relationcar_owner);
+            this.relationwork_car = new global::System.Data.DataRelation("work_car", new global::System.Data.DataColumn[] {
+                        this.tableCar.codeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableWork.carCodeColumn}, false);
+            this.Relations.Add(this.relationwork_car);
+            this.relationWorkType_Work = new global::System.Data.DataRelation("WorkType_Work", new global::System.Data.DataColumn[] {
+                        this.tableWorkType.codeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableWork.typeCodeColumn}, false);
+            this.Relations.Add(this.relationWorkType_Work);
             this.relationcar_model = new global::System.Data.DataRelation("car_model", new global::System.Data.DataColumn[] {
                         this.tableModel.codeColumn}, new global::System.Data.DataColumn[] {
                         this.tableCar.modelCodeColumn}, false);
             this.Relations.Add(this.relationcar_model);
+            this.relationcar_owner = new global::System.Data.DataRelation("car_owner", new global::System.Data.DataColumn[] {
+                        this.tableOwner.codeColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCar.ownerCodeColumn}, false);
+            this.Relations.Add(this.relationcar_owner);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2400,12 +2400,12 @@ namespace lab6_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public WorkTypeRow WorkTypeRow {
+            public MasterRow MasterRow {
                 get {
-                    return ((WorkTypeRow)(this.GetParentRow(this.Table.ParentRelations["WorkType_Work"])));
+                    return ((MasterRow)(this.GetParentRow(this.Table.ParentRelations["Master_Work"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["WorkType_Work"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["Master_Work"]);
                 }
             }
             
@@ -2422,12 +2422,12 @@ namespace lab6_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public MasterRow MasterRow {
+            public WorkTypeRow WorkTypeRow {
                 get {
-                    return ((MasterRow)(this.GetParentRow(this.Table.ParentRelations["Master_Work"])));
+                    return ((WorkTypeRow)(this.GetParentRow(this.Table.ParentRelations["WorkType_Work"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Master_Work"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["WorkType_Work"]);
                 }
             }
             
@@ -2700,23 +2700,23 @@ namespace lab6_1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OwnerRow OwnerRow {
-                get {
-                    return ((OwnerRow)(this.GetParentRow(this.Table.ParentRelations["car_owner"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["car_owner"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ModelRow ModelRow {
                 get {
                     return ((ModelRow)(this.GetParentRow(this.Table.ParentRelations["car_model"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["car_model"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OwnerRow OwnerRow {
+                get {
+                    return ((OwnerRow)(this.GetParentRow(this.Table.ParentRelations["car_owner"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["car_owner"]);
                 }
             }
             

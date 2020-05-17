@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace lab6_1
 {
-    public partial class AddMaster : Window
+    public partial class AddMaster : Window, IAddSomething
     {
         public bool Valid
         {
@@ -16,7 +18,7 @@ namespace lab6_1
                     (DateTime.Now.Year - ((DateTime)birthDate.SelectedDate).Year) >= 18);
             }
         }
-        public object[] value;
+        public object[] Value { get; set; }
         public void Fill(object[] tuple)
         {
             string[] passport = tuple[1].ToString().Split('|');
@@ -30,12 +32,39 @@ namespace lab6_1
         {
             InitializeComponent();
             birthDate.SelectedDate = DateTime.Now;
+            pNum.GotFocus += gotFocus;
+            pSeries.GotFocus += gotFocus;
+            pInfo.GotFocus += gotFocus;
+            Name.GotFocus += gotFocus;
+            birthDate.GotFocus += gotFocus;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            value = new object[] { null, pSeries.Text + "|" + pNum.Text + "|" + pInfo.Text, Name.Text, birthDate.SelectedDate.Value.ToShortDateString() };
+            Value = new object[] { null, pSeries.Text + "|" + pNum.Text + "|" + pInfo.Text, Name.Text, birthDate.SelectedDate.Value.ToShortDateString() };
+
+            if (!Valid)
+            {
+                if (string.IsNullOrEmpty(Name.Text))
+                    Name.Background = (new SolidColorBrush(Color.FromArgb(90, 250, 20, 20)));
+                if (string.IsNullOrEmpty(pInfo.Text))
+                    pInfo.Background = (new SolidColorBrush(Color.FromArgb(90, 250, 20, 20)));
+                if (pSeries.Text.Length != 4)
+                    pSeries.Background = (new SolidColorBrush(Color.FromArgb(90, 250, 20, 20)));
+                if (pNum.Text.Length != 6)
+                    pNum.Background = (new SolidColorBrush(Color.FromArgb(90, 250, 20, 20)));
+                if ((DateTime.Now.Year - ((DateTime)birthDate.SelectedDate).Year) < 18)
+                    birthDate.Background = (new SolidColorBrush(Color.FromArgb(90, 250, 20, 20)));
+                MessageBox.Show("Валидация не пройдена");
+                return;
+            }
+
+
             DialogResult = true;
+        }
+        private void gotFocus(object sender, RoutedEventArgs e)
+        {
+            (sender as Control).Background = Brushes.White;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

@@ -1,121 +1,67 @@
-﻿using System.Data;
-using System.Linq;
-using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows;
 
 namespace lab6_1
 {
-    public partial class Cars : Window
+    public partial class Cars : Window, IValue
     {
-        MainWindow owner; //Родительское окно
-        DataSet1.CarDataTable oTable; //Рабочая таблица
-        public object[] Val = null; //возвращаемая строка в виде ItemArray
+        public object[] Val { get; set; } // возвращаемое значение, которое определяется в классе DataWindow<>
+        DataWindow<AddCar> W; // Объект класса с общей логикой
         public Cars()
         {
-            InitializeComponent();
+            InitializeComponent(); //все как обычно
             Loaded += Cars_Loaded;
-            list.MouseDoubleClick += List_MouseDoubleClick; ;
-        }
-        private void List_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if (list.SelectedIndex != -1)
-            {
-                try //Если окно было открыто в модальном режиме
-                {
-                    Val = owner.set.Car.Rows[list.SelectedIndex].ItemArray;
-                    DialogResult = true; //Вернем выбранную строку
-                }
-                catch
-                {
-                    // Открыть редактирование выбранной строки
-                    editButton_Click(null, null);
-                }
-            }
-        }
-        //три перегрузки метода обновления
-        private void refresh()
-        {
-            refresh(null, (DataRowChangeEventArgs)null);
-        }
-        private void refresh(object sender, DataTableNewRowEventArgs e)
-        {
-            refresh(null, (DataRowChangeEventArgs)null);
-        }
-        private void refresh(object sender, DataRowChangeEventArgs e)
-        {
-            list.Items.Clear();
-            foreach (DataRow r in oTable.Rows)
-                list.Items.Add(r.ItemArray[0] + " " + owner.set.Model.Rows.Find(r.ItemArray[1]).ItemArray[1].ToString() + " (" + r.ItemArray[3] + ")");
+
+            W = new DataWindow<AddCar>(this);
+
+            addButton.Click += W.addButton_Click; //делегируем обработку событий в "общий" класс
+            editButton.Click += W.editButton_Click;
+            removeButton.Click += W.removeButton_Click;
+            list.MouseDoubleClick += W.List_MouseDoubleClick;
         }
         private void Cars_Loaded(object sender, RoutedEventArgs e)
         {
-            owner = this.Owner as MainWindow;
-            oTable = owner.set.Car;
-            owner.set.Car.RowChanged += refresh;
-            owner.set.Car.RowDeleted += refresh;
-            owner.set.Car.TableNewRow += refresh;
-            refresh();
+            //Подцепляем таблицу и события DataSet'a, причем именно здесь, потому что значение поля Owner будет задано после создания объекта
+            W.oTable = MainWindow.set.Car;
+            W.oTable.RowChanged += W.refresh;
+            W.oTable.RowDeleted += W.refresh;
+            W.oTable.TableNewRow += W.refresh;
+            W.List = list;
+            W.refresh();
         }
-        private void removeButton_Click(object sender, RoutedEventArgs e)
-        {
-            int index = list.SelectedIndex;
-            if (index != -1 && MessageBox.Show("Удаление этого элемента может повлечь удаление связанных с ним записей\nПродолжить?", "Удаление", //предупреждение
-                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                oTable.Rows.RemoveAt(list.SelectedIndex);
-        }
-        private void addButton_Click(object sender, RoutedEventArgs e)
-        {
-            bool flag = true;
-            while (flag)
-            {
-                AddCar adm = new AddCar();
-                adm.Owner = owner;
-                if ((bool)adm.ShowDialog())
-                    if (adm.Valid)
-                    {
-                        oTable.AddCarRow((adm.value[1] as DataSet1.ModelRow),
-                            (adm.value[2] as DataSet1.OwnerRow), adm.value[3].ToString());
-                        flag = false;
-                    }
-                    else
-                        MessageBox.Show("Валидация не пройдена");
-                else flag = false;
-            }
-        }
-        private void editButton_Click(object sender, RoutedEventArgs e)
-        {
-            int index = list.SelectedIndex;
-            if (index != -1)
-            {
-                bool flag = true;
-                while (flag)
-                {
-                    AddCar adm = new AddCar();
-                    adm.Owner = owner;
-                    adm.Fill(oTable.Rows[list.SelectedIndex].ItemArray, owner.set);
-                    if ((bool)adm.ShowDialog())
-                        if (adm.Valid)
-                        {
-                            try
-                            {
-                                DataSet1.CarRow row = oTable.ElementAt(list.SelectedIndex);
-                                row.BeginEdit();
-                                row[1] = adm.value[1] as DataSet1.ModelRow;
-                                row[2] = adm.value[2] as DataSet1.OwnerRow;
-                                row[3] = adm.value[3].ToString();
-                                row.EndEdit();
-                                flag = false;
-                            }
-                            catch
-                            {
-                                MessageBox.Show("Ошибка при редактировании!\nВозможно запись была удалена во время редактирования");
-                            }
-                        }
-                        else
-                            MessageBox.Show("Валидация не пройдена");
-                    else flag = false;
-                }
-            }
-        }
+        //private void editButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    int index = list.SelectedIndex;
+        //    if (index != -1)
+        //    {
+        //        bool flag = true;
+        //        while (flag)
+        //        {
+        //            AddCar adm = new AddCar();
+        //            adm.Owner = owner;
+        //            adm.Fill(oTable.Rows[list.SelectedIndex].ItemArray, owner.set);
+        //            if ((bool)adm.ShowDialog())
+        //                if (adm.Valid)
+        //                {
+        //                    try
+        //                    {
+        //                        DataSet1.CarRow row = oTable.ElementAt(list.SelectedIndex);
+        //                        row.BeginEdit();
+        //                        row[1] = adm.value[1] as DataSet1.ModelRow;
+        //                        row[2] = adm.value[2] as DataSet1.OwnerRow;
+        //                        row[3] = adm.value[3].ToString();
+        //                        row.EndEdit();
+        //                        flag = false;
+        //                    }
+        //                    catch
+        //                    {
+        //                        MessageBox.Show("Ошибка при редактировании!\nВозможно запись была удалена во время редактирования");
+        //                    }
+        //                }
+        //                else
+        //                    MessageBox.Show("Валидация не пройдена");
+        //            else flag = false;
+        //        }
+        //    }
+        //}
     }
 }

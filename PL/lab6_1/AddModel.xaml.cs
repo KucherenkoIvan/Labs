@@ -1,8 +1,10 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace lab6_1
 {
-    public partial class AddModel : Window
+    public partial class AddModel : Window, IAddSomething
     {
         public bool Valid
         {
@@ -11,7 +13,7 @@ namespace lab6_1
                 return !string.IsNullOrEmpty(Name.Text);
             }
         }
-        public object[] value;
+        public object[] Value { get; set; }
         public void Fill(object[] tuple)
         {
             Name.Text = tuple[1].ToString();
@@ -19,11 +21,22 @@ namespace lab6_1
         public AddModel()
         {
             InitializeComponent();
+            Name.GotFocus += gotFocus;
+        }
+        private void gotFocus(object sender, RoutedEventArgs e)
+        {
+            (sender as Control).Background = Brushes.White;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            value = new object[] { null, Name.Text };
+            Value = new object[] { null, Name.Text }; 
+            if (!Valid)
+            {
+                Name.Background = (new SolidColorBrush(Color.FromArgb(90, 250, 20, 20)));
+                MessageBox.Show("Валидация не пройдена");
+                return;
+            }
             DialogResult = true;
         }
 

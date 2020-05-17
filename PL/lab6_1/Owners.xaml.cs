@@ -1,102 +1,33 @@
-﻿using System.Data;
-using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows;
 
 namespace lab6_1
 {
-    public partial class Owners : Window
+    public partial class Owners : Window, IValue
     {
-        MainWindow owner;
-        DataRowCollection oRows;
-        public object[] Val = null;
+        public object[] Val { get; set; } // возвращаемое значение, которое определяется в классе DataWindow<>
+        DataWindow<AddOwner> W; // Объект класса с общей логикой
         public Owners()
         {
-            InitializeComponent();
+            InitializeComponent(); //все как обычно
             Loaded += Owners_Loaded;
-            list.MouseDoubleClick += List_MouseDoubleClick; ;
-        }
 
-        private void List_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                Val = owner.set.Owner.Rows[list.SelectedIndex].ItemArray;
-                DialogResult = true;
-            }
-            catch
-            {
-                editButton_Click(null, null);
-            }
-        }
+            W = new DataWindow<AddOwner>(this);
 
-        private void refresh(object sender, DataTableNewRowEventArgs e)
-        {
-            refresh(null, (DataRowChangeEventArgs)null);
+            addButton.Click += W.addButton_Click; //делегируем обработку событий в "общий" класс
+            editButton.Click += W.editButton_Click;
+            removeButton.Click += W.removeButton_Click;
+            list.MouseDoubleClick += W.List_MouseDoubleClick;
         }
-
-        private void refresh(object sender, DataRowChangeEventArgs e)
-        {
-            list.Items.Clear();
-            foreach (DataRow r in oRows)
-                list.Items.Add(r.ItemArray[0] + " " + r.ItemArray[2]);
-        }
-
         private void Owners_Loaded(object sender, RoutedEventArgs e)
         {
-            owner = this.Owner as MainWindow;
-            oRows = owner.set.Owner.Rows;
-            owner.set.Owner.RowChanged += refresh;
-            owner.set.Owner.RowDeleted += refresh;
-            owner.set.Owner.TableNewRow += refresh;
-            refresh(null, (DataRowChangeEventArgs)null);
-        }
-        private void removeButton_Click(object sender, RoutedEventArgs e)
-        {
-            int index = list.SelectedIndex;
-            if (index != -1 && MessageBox.Show("Удаление этого элемента может повлечь удаление связанных с ним записей\nПродолжить?", "Удаление",
-                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                oRows.RemoveAt(list.SelectedIndex);
-        }
+            //Подцепляем таблицу и события DataSet'a, причем именно здесь, потому что значение поля Owner будет задано после создания объекта
 
-        private void addButton_Click(object sender, RoutedEventArgs e)
-        {
-            bool flag = true;
-            while (flag)
-            {
-                AddOwner adm = new AddOwner();
-                if ((bool)adm.ShowDialog())
-                    if (adm.Valid)
-                    {
-                        oRows.Add(adm.value);
-                        flag = false;
-                    }
-                    else
-                        MessageBox.Show("Валидация не пройдена");
-                else flag = false;
-            }
-        }
-
-        private void editButton_Click(object sender, RoutedEventArgs e)
-        {
-            int index = list.SelectedIndex;
-            if (index != -1)
-            {
-                bool flag = true;
-                while (flag)
-                {
-                    AddOwner adm = new AddOwner();
-                    adm.Fill(oRows[list.SelectedIndex].ItemArray);
-                    if ((bool)adm.ShowDialog())
-                        if (adm.Valid)
-                        {
-                            oRows[list.SelectedIndex].ItemArray = adm.value;
-                            flag = false;
-                        }
-                        else
-                            MessageBox.Show("Валидация не пройдена");
-                    else flag = false;
-                }
-            }
+            W.oTable = MainWindow.set.Owner;
+            W.oTable.RowChanged += W.refresh;
+            W.oTable.RowDeleted += W.refresh;
+            W.oTable.TableNewRow += W.refresh;
+            W.List = list;
+            W.refresh();
         }
     }
 }

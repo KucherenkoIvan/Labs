@@ -14,63 +14,23 @@
     <Shape ID="DesignTable:WorkType" ZOrder="10" X="306" Y="114" Height="67" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="63" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:car_model" ZOrder="4" LineWidth="11">
+    <Connector ID="DesignRelation:WorkType_Work" ZOrder="6" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>545</X>
-          <Y>259</Y>
+          <X>306</X>
+          <Y>148</Y>
         </Point>
         <Point>
-          <X>512</X>
-          <Y>259</Y>
+          <X>278</X>
+          <Y>148</Y>
         </Point>
         <Point>
-          <X>512</X>
-          <Y>301</Y>
-        </Point>
-        <Point>
-          <X>456</X>
-          <Y>301</Y>
-        </Point>
-      </RoutePoints>
-    </Connector>
-    <Connector ID="DesignRelation:car_owner" ZOrder="2" LineWidth="11">
-      <RoutePoints>
-        <Point>
-          <X>549</X>
-          <Y>350</Y>
-        </Point>
-        <Point>
-          <X>514</X>
-          <Y>350</Y>
-        </Point>
-        <Point>
-          <X>514</X>
-          <Y>323</Y>
-        </Point>
-        <Point>
-          <X>456</X>
-          <Y>323</Y>
-        </Point>
-      </RoutePoints>
-    </Connector>
-    <Connector ID="DesignRelation:Master_Work" ZOrder="1" LineWidth="11">
-      <RoutePoints>
-        <Point>
-          <X>545</X>
-          <Y>144</Y>
-        </Point>
-        <Point>
-          <X>514</X>
-          <Y>144</Y>
-        </Point>
-        <Point>
-          <X>514</X>
-          <Y>210</Y>
+          <X>278</X>
+          <Y>190</Y>
         </Point>
         <Point>
           <X>176</X>
-          <Y>210</Y>
+          <Y>190</Y>
         </Point>
       </RoutePoints>
     </Connector>
@@ -94,23 +54,63 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:WorkType_Work" ZOrder="6" LineWidth="11">
+    <Connector ID="DesignRelation:Master_Work" ZOrder="1" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>306</X>
-          <Y>148</Y>
+          <X>545</X>
+          <Y>144</Y>
         </Point>
         <Point>
-          <X>278</X>
-          <Y>148</Y>
+          <X>514</X>
+          <Y>144</Y>
         </Point>
         <Point>
-          <X>278</X>
-          <Y>190</Y>
+          <X>514</X>
+          <Y>210</Y>
         </Point>
         <Point>
           <X>176</X>
-          <Y>190</Y>
+          <Y>210</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
+    <Connector ID="DesignRelation:car_owner" ZOrder="2" LineWidth="11">
+      <RoutePoints>
+        <Point>
+          <X>549</X>
+          <Y>350</Y>
+        </Point>
+        <Point>
+          <X>514</X>
+          <Y>350</Y>
+        </Point>
+        <Point>
+          <X>514</X>
+          <Y>323</Y>
+        </Point>
+        <Point>
+          <X>456</X>
+          <Y>323</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
+    <Connector ID="DesignRelation:car_model" ZOrder="4" LineWidth="11">
+      <RoutePoints>
+        <Point>
+          <X>545</X>
+          <Y>259</Y>
+        </Point>
+        <Point>
+          <X>512</X>
+          <Y>259</Y>
+        </Point>
+        <Point>
+          <X>512</X>
+          <Y>301</Y>
+        </Point>
+        <Point>
+          <X>456</X>
+          <Y>301</Y>
         </Point>
       </RoutePoints>
     </Connector>
