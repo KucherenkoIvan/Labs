@@ -1,0 +1,6 @@
+D:\creative\Labs\Siakod\Lab7\bin\Release\Lab7.exe.config
+D:\creative\Labs\Siakod\Lab7\bin\Release\Lab7.exe
+D:\creative\Labs\Siakod\Lab7\bin\Release\Lab7.pdb
+D:\creative\Labs\Siakod\Lab7\obj\Release\Lab7.csproj.CoreCompileInputs.cache
+D:\creative\Labs\Siakod\Lab7\obj\Release\Lab7.exe
+D:\creative\Labs\Siakod\Lab7\obj\Release\Lab7.pdb

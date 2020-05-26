@@ -1,0 +1,7 @@
+D:\creative\Labs\Siakod\Lab7\bin\Debug\Lab7.exe.config
+D:\creative\Labs\Siakod\Lab7\bin\Debug\Lab7.exe
+D:\creative\Labs\Siakod\Lab7\bin\Debug\Lab7.pdb
+D:\creative\Labs\Siakod\Lab7\obj\Debug\Lab7.csprojAssemblyReference.cache
+D:\creative\Labs\Siakod\Lab7\obj\Debug\Lab7.csproj.CoreCompileInputs.cache
+D:\creative\Labs\Siakod\Lab7\obj\Debug\Lab7.exe
+D:\creative\Labs\Siakod\Lab7\obj\Debug\Lab7.pdb
