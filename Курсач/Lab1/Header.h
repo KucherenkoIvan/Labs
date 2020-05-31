@@ -1,41 +1,63 @@
 #pragma once
-#include "Text.h"
-#include "Line.h"
+#include <string>
+#include <fstream>
+#include <iostream>
+#include <clocale>
 
 using namespace std;
 
-const int DEF_STRLEN = 1000;
+const int DEF_STRLEN = 100;
 
 struct Char
 {
 	char value;
-	int freq; //частота встречаемости символа
+	int freq;
+	string ToString();
 };
 struct Subword
 {
-	char* value;
-	int freq; //частота встречаемости буквосочетани€
+	string value;
+	int freq;
+	string ToString();
 };
 struct Word
 {
-	char* value;
-	Subword* subs; //массив буквосочетаний слова
+	string value;
+	Subword* subs;
+	Char* chars;
+	int freq;
+	int subsCount;
+	int chCount;
+	string ToString();
 };
+struct Sentence
+{
+	string value;
+	Word* words;
+	Char* puncts;
+	int wCount;
+	int freq;
+	int pCount;
+	string ToString();
+};
+struct Paragraph
+{
+	Char* puncts;
+	string value;
+	Sentence* sentences;
+	int sCount;
+	int pCount;
+	string ToString();
+};
+string* ReadFile(string path);
+int WordsCount();
+int CharsCount();
+int RowsCount();
+void test();
 
-//struct Char
-//{
-//	char value;
-//	int freq; //„астота встречаемости символа
-//};
-//
-//struct Line
-//{
-//	char chars[DEF_STRLEN];
-//	int Length;
-//};
-//
-//struct Text
-//{
-//	Line* lines;
-//	int Length = 0;
-//};
+Paragraph* par_analysis(string para);
+bool iscyrylic(char ch);
+Word* word_analysis(string wrd);
+Char* char_analysis(Word* word);
+Sentence* sentence_analysis(string stc);
+void WriteFile(string path);

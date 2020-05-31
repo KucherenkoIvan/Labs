@@ -1,13 +1,16 @@
 ﻿// Lab1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
-#include <iostream>
-//#include <string>
-//#include <string.h>
 #include "Header.h"
+
+using namespace std;
 
 int main()
 {
+	setlocale(LC_ALL, "Russian");
+	string* t = ReadFile(new char[10] {"input.txt"});
+	cout << WordsCount() << endl;
+	WriteFile(new char[11] {"output.txt"});
+	for (int i = 0; i < RowsCount(); i++)
+		cout << t[i] << "[конец строки]" << endl;
 	return 0;
 }
 
