@@ -11,63 +11,63 @@ Sentence* sentences = new Sentence[0];
 Paragraph* paragraphs = new Paragraph[0];
 int wLen = 0, cLen = 0, sCount = 0, rCount = 0, prCount = 0, sbCount = 0;
 
-string Paragraph::ToString()
+str Paragraph::ToString()
 {
-	string ret = "\nАбзац:";
+	str ret("\nАбзац:");
 
-	string s = "\n" + tab2;
+	str s("\n" + tab2);
 	for (int i = 0; i < sCount; i++)
 		s += sentences[i].ToString();
-	string p = "\n" + tab2;
+	str p("\n" + tab2);
 	for (int i = 0; i < pCount; i++)
-		p += "\n" + tab3 + puncts[i].ToString();
+		p += "\n" + tab3 + puncts[i].ToString().value;
 
-	ret += "\n" + tab + "Текст: \"" + value + "\"";
-	ret += "\n" + tab + "Анализ знаков пунктуации: " + p;
-	ret += "\n" + tab + "Анализ предложений: " + s;
+	ret += ("\n" + tab + "Текст: \"" + value.value + "\"");
+	ret += ("\n" + tab + "Анализ знаков пунктуации: " + p.value);
+	ret += ("\n" + tab + "Анализ предложений: " + s.value);
 
 	return (ret);
 }
 
-string Sentence::ToString()
+str Sentence::ToString()
 {
-	string ret = "\n";
-	string w = tab4;
-	string p = tab4;
+	str ret("\n");
+	str w(tab4);
+	str p(tab4);
 	for (int i = 0; i < wCount; i++)
-		w += "\n" + (words[i].ToString());
+		w += str("\n") + words[i].ToString();
 	for (int i = 0; i < pCount; i++)
-		p += "\n" + tab7 + puncts[i].ToString();
+		p += str("\n" + tab7) + puncts[i].ToString();
 
-	ret += tab3 + "Предложение \"" + value + "\"\n";
+	ret += str(tab3 + "Предложение \"") + value + "\"\n";
 	ret += tab3 + "Встретилось " + to_string(freq) + " раз\n";
-	ret += tab3 + "Анализ слов:" + w;
-	ret += tab3 + "Анализ знаков пунктуации: " + p;
+	ret += tab3 + "Анализ слов:" + w.value;
+	ret += tab3 + "Анализ знаков пунктуации: " + p.value;
 	return (ret);
 }
-string Word::ToString()
+str Word::ToString()
 {
-	string ret = "\n", sbs = "", chs = "";
+	str ret("\n"), sbs(""), chs("");
 	for (int i = 0; i < subsCount; i++)
-		sbs += "\n" + tab7 + subs[i].ToString();
+		sbs += str("\n" + tab7) + subs[i].ToString();
 
 	for (int i = 0; i < chCount; i++)
-		chs += "\n" + tab7 + chars[i].ToString();
-	ret += tab5 + "Слово \"" + value + "\"\n";
-	ret += tab5 + "Встретилось " + to_string(freq) + " раз\n";
-	ret += tab5 + "Анализ лексем: " + sbs + "\n";
-	ret += tab5 + "Анализ символов: " + chs;
+		chs += str("\n" + tab7) + chars[i].ToString();
+	ret += str(tab5 + "Слово \"") + value + "\"\n";
+	ret += str(tab5 + "Встретилось " + to_string(freq) + " раз\n");
+	ret += str(tab5 + "Анализ лексем: ") + sbs + "\n";
+	ret += str(tab5 + "Анализ символов: ") + chs;
 	return (ret + "\n");
 }
-string Subword::ToString()
+str Subword::ToString()
 {
-	return ("Лексема \"" + (value) + "\" встретилась " + to_string(freq) + " раз");
+	return (str("Лексема \"") + (value) + "\" встретилась " + to_string(freq) + " раз");
 }
-string Char::ToString()
+str Char::ToString()
 {
-	string h = " ";
+	str h = " ";
 	h[0] = value;
-	return ("Символ '" + h + "' встретился " + to_string(freq) + " раз");
+	return ("Символ '" + h + "' встретился " + to_str(freq) + " раз");
 }
 int RowsCount()
 {
@@ -89,17 +89,17 @@ bool iscyrylic(char ch)
 			return true;
 	return false;
 }
-string* ReadFile(string path) //одна строка == один абзац
+str* ReadFile(str path) //одна строка == один абзац
 {
-	string* text = new string[0];
-	string l = "";
+	str* text = new str[0];
+	str l = "";
 	ifstream f(path);
 	if (f.is_open())
 	{
 		while (getline(f, l))
 		{
 			l += "";
-			string* s = new string[++rCount];
+			str* s = new str[++rCount];
 			for (int i = 0; i < rCount - 1; i++)
 				s[i] = text[i];
 			s[rCount - 1] = l;
@@ -152,7 +152,7 @@ void Compile()
 		}
 	}
 }
-void WriteFile(string path)
+void WriteFile(str path)
 {
 	Compile();
 	ofstream o(path);
@@ -166,7 +166,7 @@ void WriteFile(string path)
 }
 
 
-Paragraph* par_analysis(string para)
+Paragraph* par_analysis(str para)
 {
 	Paragraph* ret = new Paragraph;
 	ret->value = para;
@@ -176,7 +176,7 @@ Paragraph* par_analysis(string para)
 
 	//Анализ знаков пунктуации
 	Char* pts = new Char[0];
-	for (int i = 0; i < para.length(); i++)
+	for (int i = 0; i < para.len(); i++)
 	{
 		if (ispunct(para[i]))
 		{
@@ -207,7 +207,7 @@ Paragraph* par_analysis(string para)
 	//Анализ предложений
 	for (int start = 0, i; start < para.length();)
 	{
-		string stc = "";
+		str stc = "";
 		for (i = start; para[i] != '.' && para[i] != '!' && para[i] != '?' && i < para.length(); i++)
 		{
 			stc += para[i];
@@ -244,7 +244,7 @@ Paragraph* par_analysis(string para)
 
 	return ret;
 }
-Sentence* sentence_analysis(string stc)
+Sentence* sentence_analysis(str stc)
 {
 	Sentence* ret = new Sentence;
 	ret->value = stc;
@@ -252,7 +252,7 @@ Sentence* sentence_analysis(string stc)
 	ret->words = new Word[0];
 	ret->freq = 1;
 
-	string b = "", puncts = "";
+	str b = "", puncts = "";
 
 	int count = 0;
 
@@ -368,7 +368,7 @@ Sentence* sentence_analysis(string stc)
 	}
 	return ret;
 }
-Word* word_analysis(string wrd)
+Word* word_analysis(str wrd)
 {
 	if (wrd == "") return NULL;
 	for (int wlen = 0; wlen < wrd.length(); wlen++)
@@ -413,7 +413,7 @@ Word* word_analysis(string wrd)
 	for (int sub_len = 1; sub_len <= wrd.length(); sub_len++)
 		for (int i = 0; i + sub_len <= wrd.length(); i++)
 		{
-			string sub = "";
+			str sub = "";
 			for (int j = 0; j < sub_len; j++)
 				sub += wrd[i + j];
 			bool flag = false;
@@ -452,7 +452,7 @@ Word* word_analysis(string wrd)
 
 Char* char_analysis(Word* word)
 {
-	string wrd = (*word).value;
+	str wrd = (*word).value;
 	if (wrd == "") return NULL;
 
 	Char* ret = new Char[0];

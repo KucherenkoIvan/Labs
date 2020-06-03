@@ -1,4 +1,5 @@
 #pragma once
+#include "str.h"
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -12,52 +13,52 @@ struct Char
 {
 	char value;
 	int freq;
-	string ToString();
+	str ToString();
 };
 struct Subword
 {
-	string value;
+	str value;
 	int freq;
-	string ToString();
+	str ToString();
 };
 struct Word
 {
-	string value;
+	str value;
 	Subword* subs;
 	Char* chars;
 	int freq;
 	int subsCount;
 	int chCount;
-	string ToString();
+	str ToString();
 };
 struct Sentence
 {
-	string value;
+	str value;
 	Word* words;
 	Char* puncts;
 	int wCount;
 	int freq;
 	int pCount;
-	string ToString();
+	str ToString();
 };
 struct Paragraph
 {
 	Char* puncts;
-	string value;
+	str value;
 	Sentence* sentences;
 	int sCount;
 	int pCount;
-	string ToString();
+	str ToString();
 };
-string* ReadFile(string path);
+str* ReadFile(str path);
 int WordsCount();
 int CharsCount();
 int RowsCount();
 void test();
 
-Paragraph* par_analysis(string para);
+Paragraph* par_analysis(str para);
 bool iscyrylic(char ch);
-Word* word_analysis(string wrd);
+Word* word_analysis(str wrd);
 Char* char_analysis(Word* word);
-Sentence* sentence_analysis(string stc);
-void WriteFile(string path);
+Sentence* sentence_analysis(str stc);
+void WriteFile(str path);
