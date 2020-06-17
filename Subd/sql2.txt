@@ -1,0 +1,9 @@
+#sql 2 SELECT Person.LastName as PLN, Person.FirstName as PFN, Person.MiddleName as PMN, Person.BDay as PBDay, Rating.Rate as RR, Book.Name as BN, Book.ReleaseYear as BRY FROM Person INNER JOIN Rating ON Person.ID = Rating.PersonID INNER JOIN Book ON Rating.BookID = Book.ID WHERE Rating.Rate IS NOT NULL
+
+
+
+
+
+
+
+#sql 3 SELECT Person.LastName as PersonLastName, Person.FirstName as PersonFirstName, Person.MiddleName as PersonMiddleName, Person.BDay as BDay, Rating.Rate as Rate, Book.Name as BookName, Book.ReleaseYear as BookReleaseYear FROM Person INNER JOIN Rating ON Person.ID = Rating.PersonID INNER JOIN Book ON Rating.BookID = Book.ID WHERE Rating.Rate IS NOT NULL AND YEAR(Person.BDay) >= Book.ReleaseYear AND ((DAY(Person.BDay) != 1 OR MONTH(Person.BDay) != 1) OR (YEAR(Person.BDay) > Book.ReleaseYear))
